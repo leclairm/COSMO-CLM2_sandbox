@@ -44,8 +44,8 @@ done
 
 # Transfer input files
 # --------------------
-rsync -av /project/sm61/leclairm/CCLM2_sandbox_input_data/cesm_input_044/ ./cesm_input/
-rsync -av /project/sm61/leclairm/CCLM2_sandbox_input_data/cosmo_input_044/ ./cosmo_input/
+rsync -av /project/sm61/leclairm/CCLM2_sandbox_inputdata/cesm_input_044/ ./cesm_input/
+rsync -av /project/sm61/leclairm/CCLM2_sandbox_inputdata/cosmo_input_044/ ./cosmo_input/
 
 # Distribute tasks
 # ----------------
