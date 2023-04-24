@@ -1,0 +1,133 @@
+ &IOCTL
+  ldwd_grib_use = .FALSE.
+  yform_read = 'ncdf'
+  l_ke_in_gds = .TRUE.
+  lasync_io = .FALSE.
+  lprefetch_io = .FALSE.
+  ymode_read = 'r  '
+  ymode_write = 'w  '
+  nincwait = 10
+  nmaxwait = 200
+  nhour_restart = 0, 48, 48
+  ngribout = 4
+  itype_gather = 2
+  ydir_restart_in = 'output/restart'
+  ydir_restart_out = 'output/restart'
+  ytunit_restart = 'd'
+  lbdclim = .TRUE.
+  yncglob_title = "COSMO driven by ERA5"
+  yncglob_source = "COSMO_5.08"
+ /END
+
+ &DATABASE
+ /END
+
+ &GRIBIN
+  lbdana = .FALSE.
+  ydirini = 'input'
+  lchkini = .TRUE.
+  hincbound = 6.0
+  ydirbd = 'input'
+  lchkbd =.TRUE.
+  lana_qi = .TRUE.
+  llb_qi = .TRUE.
+  lana_qg = .FALSE.
+  llb_qg = .FALSE.
+  lana_qr_qs = .FALSE.
+  llb_qr_qs  = .FALSE.
+  lana_rho_snow = .FALSE.
+  lan_lai = .TRUE.
+  lan_rootdp = .TRUE.
+  lan_vio3 = .TRUE.
+  lan_plcov = .TRUE.
+  lan_t_cl = .TRUE.
+  lan_w_cl = .TRUE.
+  lan_hmo3 = .TRUE.
+  lan_t_so0 = .TRUE.
+  lan_t_snow = .TRUE.
+  lan_w_snow = .TRUE.
+  lan_w_i = .TRUE.
+  lan_rho_snow = .TRUE.
+  lan_t_s = .FALSE.
+  ytunitbd = 'd'
+ /END
+
+ &GRIBOUT
+  yform_write = 'nc-4'
+  hcomb = 0.0, 48, 1
+  yvarml = 'U','V','W','T','PP',
+     'QV','QC', 'QS','QR','QI','QG',
+     'VIO3','HMO3',
+     'T_SNOW','QV_S','W_SNOW','W_I','T_S',
+     'T_SO','W_SO','RHO_SNOW','FRESHSNW'
+  yvarpl = ' '
+  yvarzl = ' '
+  lcheck = .FALSE.
+  luvmasspoint = .FALSE.
+  lwrite_const = .TRUE.
+  ydir = 'output/bc'
+  l_z_filter = .FALSE.
+  l_p_filter = .FALSE.
+  l_fi_pmsl_smooth = .FALSE.
+  ytunit = 'd'
+ /END
+
+ &GRIBOUT
+  yform_write = 'nc-4'
+  hcomb = 0.0, 48, 1
+  yvarml = 'U_10M', 'V_10M', 'T_2M', 'RELHUM_2M', 'PS', 'QV_2M',
+           'ALHFL_S', 'ASHFL_S', 'AUMFL_S', 'AVMFL_S', 'CAPE_ML',
+           'CIN_ML', 'CLCH', 'CLCM', 'CLCL', 'TOT_PREC',
+           'TQC', 'TQI','TQR','TQV','TQG','TQS',
+           'ASOB_T', 'ASOD_T',  'ATHB_T', 'ASOBC_T', 'ATHBC_T',
+           'ASOB_S', 'ASWDIFD_S','ASWDIR_S', 'ASWDIFU_S', 'ATHB_S', 'ATHD_S',
+           'ASOBC_S', 'ATHBC_S'
+  yvarpl = ' '
+  yvarzl = ' '
+  ireset_sums = 2
+  lcheck = .TRUE.
+  luvmasspoint = .FALSE.
+  lwrite_const = .FALSE.
+  ydir = 'output/1h_2D'
+  l_z_filter = .FALSE.
+  l_p_filter = .FALSE.
+  l_fi_pmsl_smooth = .FALSE.
+  ytunit = 'd'
+ /END
+
+ &GRIBOUT
+  yform_write = 'nc-4'
+  hcomb = 0.0, 48, 3
+  yvarml = ' '
+  yvarpl = ' ',
+  yvarzl = 'U', 'V', 'W', 'T', 'P', 'QV', 'QC', 'QI'
+  zlev = 100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000,
+         2300, 2600, 2900, 3200, 3500,
+         4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000
+  lcheck = .FALSE.
+  luvmasspoint = .FALSE.
+  lwrite_const = .FALSE.
+  ydir = 'output/3h_3D_zlev'
+  l_z_filter = .FALSE.
+  l_p_filter = .FALSE.
+  l_fi_pmsl_smooth = .FALSE.
+  ytunit = 'd'
+ /END
+
+ &GRIBOUT
+  yform_write = 'nc-4'
+  hcomb = 0.0, 48, 24
+  yvarml = 'VMAX_10M', 'W_SO', 'TMIN_2M', 'TMAX_2M', 'RUNOFF_S', 'RUNOFF_G',
+  yvarpl = ' '
+  yvarzl = ' '
+  ireset_winds = 2
+  ireset_temps = 2
+  lcheck = .FALSE.
+  luvmasspoint = .FALSE.
+  lwrite_const = .FALSE.
+  ydir = 'output/24h'
+  l_z_filter = .FALSE.
+  l_p_filter = .FALSE.
+  l_fi_pmsl_smooth = .FALSE.
+  ytunit = 'd'
+ /END

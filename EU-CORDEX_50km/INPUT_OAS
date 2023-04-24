@@ -1,0 +1,5 @@
+&oasisctl
+IOASISDEBUGLVL = 200
+lconcurrent_cpl = .FALSE.
+lcoup_oas_clm = .TRUE.
+/

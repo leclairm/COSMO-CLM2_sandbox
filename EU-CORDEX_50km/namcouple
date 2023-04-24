@@ -1,0 +1,296 @@
+# This is a typical input file for OASIS 3.0, using netCDF format
+# for restart input files.  Oasis reads in
+# this file at run-time. Don't hesitate to ask precisions or make
+# suggestions (oasishelp@cerfacs.fr). This file can be used AS IT IS
+# to run the CLIM toy model (toyclim).
+#
+# Any line beginning with # is ignored. Blank lines are not allowed.
+#
+#########################################################################
+ $NFIELDS
+# This is the total number of fields being exchanged. 
+# For the definition of the fields, see under $STRINGS keyword
+#
+       17
+ $END
+##########################################################################
+ $NBMODEL
+# This gives you the number of models running in this experiment +
+# their names (6 characters) + , in option, the maximum Fortran unit
+# number used by each model; 1024 will be used if none are given.
+#
+  2  cosmoc   clmxxx   99  99
+ $END
+###########################################################################
+ $RUNTIME
+# This gives you the total simulated time for this run in seconds (here 6 days)
+#
+  86400
+ $END
+###########################################################################
+ $NLOGPRT
+# Index of printing level in output file cplout: 0 = no printing
+#  1 = main routines and field names when treated, 2 = complete output
+  2
+ $END
+###########################################################################
+ $STRINGS
+#
+# The above variables are the general parameters for the experiment.
+# Everything below has to do with the fields being exchanged.
+#
+############################################################################
+#                      ATMOSPHERE  --->>>  SOIL
+#                      --------------------
+############################################################################
+#
+# --- start Field 1 : Surface temperature
+# 
+COSTEMPE  CLMTEMPE 1  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 1 ---
+############################################################################
+#
+# --- start Field 2 : eastward_wind
+# 
+COSUWIND CLMUWIND 182  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# --- end field 2 ---
+############################################################################
+#
+# --- start Field 3 : northward_wind
+# 
+COSVWIND CLMVWIND 262  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 3 ---
+############################################################################
+#
+# --- start Field 4 : specific water vapor content
+# 
+COSSPWAT CLMSPWAT 456  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 4 ---
+############################################################################
+#
+# --- start Field 5 : thickness of lowest level (m)
+# 
+COSTHICK CLMTHICK 116  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 5 ---
+############################################################################
+#
+# --- start Field 6 : surface pressure (Pa)
+# 
+COSPRESS CLMPRESS 348  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 6 ---
+############################################################################
+#
+# --- start Field 7 : direct shortwave downward radiation (W/m2)
+# 
+COSDIRSW CLMDIRSW  11  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 7 ---
+############################################################################
+#
+# --- start Field 8 :  diffuse shortwave downward radiation (W/m2)
+# 
+COSDIFSW CLMDIFSW 12  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 8 ---
+############################################################################
+#
+# --- start Field 9 : longwave downward radiation (W/m2)
+# 
+COSLONGW CLMLONGW 10  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 9 ---
+############################################################################
+#
+# --- start Field 10 :  total convective precipitation      (kg/m2*s)
+# 
+COSCVPRE CLMCVPRE 152  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 10 ---
+############################################################################
+#
+# --- start Field 11 : total large scale precipitation      (kg/m2*s)
+# 
+COSGSPRE CLMGSPRE  210  3600  2  cosmo.nc  EXPORTED
+ coap  clme  LAG=+0 SEQ=1
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ BILINEAR LR SCALAR LATLON 1
+# DISTWGT LR SCALAR LATLON 10 4
+# 
+# --- end field 11 ---
+############################################################################
+#                      SOIL  --->>>  ATMOSPHERE
+#                      -------------------------
+############################################################################
+#
+# --- start Field 12 :   zonal wind stress
+# 
+CLM_TAUX COS_TAUX 353 3600  2  clm.nc EXPORTED
+ clme   coap   LAG=+0 SEQ=2
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ DISTWGT U SCALAR LATLON 10 4
+#
+# --- end field 12 ---
+#########################################################################
+#
+# --- start Field 13 :   meridional wind stress
+# 
+CLM_TAUY COS_TAUY 356 3600  2  clm.nc EXPORTED
+ clme   coap   LAG=+0 SEQ=2
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ DISTWGT U SCALAR LATLON 10 4
+#
+# --- end field 13 ---
+#########################################################################
+#
+# --- start Field 14 :  total latent heat flux (W/m**2)
+# 
+CLMLATEN COSLATEN 8 3600  2  clm.nc EXPORTED
+ clme   coap   LAG=+0 SEQ=2
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ DISTWGT U SCALAR LATLON 10 4
+#
+# --- end field 14 ---
+#########################################################################
+#
+# --- start Field 15 :   total sensible heat flux (W/m**2)
+# 
+CLMSENSI COSSENSI 9 3600  2  clm.nc EXPORTED
+ clme   coap   LAG=+0 SEQ=2
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ DISTWGT U SCALAR LATLON 10 4
+#
+# --- end field 15 ---
+#########################################################################
+#
+# --- start Field 16 :   emitted infrared (longwave) radiation (W/m**2)
+# 
+CLMINFRA COSINFRA 5 3600  2  clm.nc EXPORTED
+ clme   coap   LAG=+0 SEQ=2
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ DISTWGT U SCALAR LATLON 10 4
+#
+# --- end field 16 ---
+#########################################################################
+#
+# --- start Field 17 :  albedo
+# 
+CLMALBED COSALBED 17 3600  2  clm.nc EXPORTED
+ clme   coap   LAG=+0 SEQ=2
+R  0  R  0
+#
+LOCTRANS   SCRIPR 
+#
+ AVERAGE
+ DISTWGT U SCALAR LATLON 10 4
+#
+# --- end field 17 ---
+ $END

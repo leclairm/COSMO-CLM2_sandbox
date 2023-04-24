@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<file id="stream" version="1.0">
+  <dataSource>
+    GENERIC
+  </dataSource>
+  <domainInfo>
+    <variableNames>
+      time    time
+      xc      lon
+      yc      lat
+      area    area
+      mask    mask
+    </variableNames>
+    <filePath>
+      ./cesm_input
+    </filePath>
+    <fileNames>
+      domain.lnd.360x720_gswp3.0v1.c170606.nc
+    </fileNames>
+  </domainInfo>
+  <fieldInfo>
+    <variableNames>
+      TBOT     tbot
+      WIND     wind
+      QBOT     shum
+      PSRF     pbot
+      FLDS     lwdn
+    </variableNames>
+    <filePath>
+      ./cesm_input
+    </filePath>
+    <fileNames>
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-01.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-02.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-03.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-04.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-05.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-06.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-07.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-08.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-09.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-10.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-11.nc
+      clmforc.GSWP3.c2011.0.5x0.5.TPQWL.2011-12.nc
+    </fileNames>
+    <offset>
+      0
+    </offset>
+  </fieldInfo>
+</file>

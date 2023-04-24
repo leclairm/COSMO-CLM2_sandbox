@@ -1,0 +1,63 @@
+ &LMGRID
+  startlat_tot = -19.36
+  startlon_tot = -23.33
+  pollat = 43.0
+  pollon = -170.0
+  dlon = 0.11
+  dlat = 0.11
+  ie_tot = 361
+  je_tot = 361
+  ke_tot = 60
+ /END
+
+ &RUNCTL
+  dt = 90
+  hstart = 0
+  hstop = 48
+  ydate_ini = '20110101000000'
+  hincmxt = 24.0
+  hincmxu = 24.0
+  itype_timing = 4
+  lreproduce = .TRUE.
+  luseobs =.FALSE.
+  lphys =.TRUE.
+  ldiagnos = .FALSE.
+  luse_rttov = .FALSE.
+  ldfi = .FALSE.
+  nprocx = 2
+  nprocy = 2
+  nprocio = 0
+  num_asynio_comm = 0
+  num_iope_percomm = 0
+  asynio_block_size = 10
+  nboundlines = 3
+  ldump_ascii = .FALSE.
+  itype_pert = 0
+  rperturb = 0.00001
+  itype_calendar = 0
+  idbg_level = 4
+ /END
+
+ &TUNING
+  tkhmin = 0.4
+  tkmmin = 0.4
+  mu_rain = 0.5
+  v0snow = 20.0
+  rlam_mom = 0.0
+  rlam_heat = 0.5249
+  rat_sea = 20.0
+  rat_lam = 1.0
+  rat_can = 1.0
+  c_lnd = 2.0
+  c_sea = 1.5
+  c_soil = 1.0
+  pat_len = 500.0
+  z0m_dia = 0.2
+  crsmin = 150.0
+  clc_diag = 0.5
+  q_crit = 4.0
+  qc0 = 0.0
+  qi0 = 5E-6
+  uc1 = 0.0626
+  tur_len = 500.0
+ /END

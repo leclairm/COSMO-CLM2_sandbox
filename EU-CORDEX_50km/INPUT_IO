@@ -1,0 +1,130 @@
+&ioctl
+    ldwd_grib_use = .false.
+    yform_read = 'ncdf'
+    l_ke_in_gds = .true.
+    lasync_io = .false.
+    ymode_read = 'r  '
+    ymode_write = 'w  '
+    nincwait = 10
+    nmaxwait = 200
+    nhour_restart = 0, 2, 1
+    ngribout = 4
+    itype_gather = 2
+    ydir_restart_in = 'cosmo_output/restart'
+    ydir_restart_out = 'cosmo_output/restart'
+    yform_restart = 'nc-4'
+    ytunit_restart = 'd'
+    lbdclim = .true.
+    yncglob_title = 'COSMO driven by ERA5'
+    yncglob_source = 'COSMO_5.08'
+/
+
+&database
+/
+
+&gribin
+    lbdana = .false.
+    ydirini = 'cosmo_input'
+    lchkini = .true.
+    hincbound = 6
+    ydirbd = 'cosmo_input'
+    lchkbd = .true.
+    lana_qi = .true.
+    llb_qi = .true.
+    lana_qg = .false.
+    llb_qg = .false.
+    lana_qr_qs = .false.
+    llb_qr_qs = .false.
+    lana_rho_snow = .false.
+    lan_lai = .true.
+    lan_rootdp = .true.
+    lan_vio3 = .true.
+    lan_plcov = .true.
+    lan_t_cl = .true.
+    lan_w_cl = .true.
+    lan_hmo3 = .true.
+    lan_t_so0 = .true.
+    lan_t_snow = .true.
+    lan_w_snow = .true.
+    lan_w_i = .true.
+    lan_rho_snow = .true.
+    lan_t_s = .false.
+    ytunitbd = 'd'
+/
+
+&gribout
+    yform_write = 'nc-4'
+    hcomb = 0, 24, 1
+    yvarml = 'U', 'V', 'W', 'T', 'PP', 'QV', 'QC', 'QS', 'QR', 'QI', 'QG',
+             'VIO3', 'HMO3', 'T_SNOW', 'QV_S', 'W_SNOW', 'W_I', 'T_S', 'T_SO',
+             'W_SO', 'RHO_SNOW', 'FRESHSNW'
+    yvarpl = ' '
+    yvarzl = ' '
+    lcheck = .false.
+    luvmasspoint = .false.
+    lwrite_const = .true.
+    ydir = 'cosmo_output/bc'
+    l_z_filter = .false.
+    l_p_filter = .false.
+    l_fi_pmsl_smooth = .false.
+    ytunit = 'd'
+/
+
+&gribout
+    yform_write = 'nc-4'
+    hcomb = 0, 24, 1
+    yvarml = 'U_10M', 'V_10M', 'T_2M', 'RELHUM_2M', 'PS', 'QV_2M', 'ALHFL_S',
+             'ASHFL_S', 'AUMFL_S', 'AVMFL_S', 'CAPE_ML', 'CIN_ML', 'CLCH',
+             'CLCM', 'CLCL', 'TOT_PREC', 'TQC', 'TQI', 'TQR', 'TQV', 'TQG',
+             'TQS', 'ASOB_T', 'ASOD_T', 'ATHB_T', 'ASOBC_T', 'ATHBC_T',
+             'ASOB_S', 'ASWDIFD_S', 'ASWDIR_S', 'ASWDIFU_S', 'ATHB_S', 'ATHD_S',
+             'ASOBC_S', 'ATHBC_S'
+    yvarpl = ' '
+    yvarzl = ' '
+    ireset_sums = 2
+    lcheck = .true.
+    luvmasspoint = .false.
+    lwrite_const = .false.
+    ydir = 'cosmo_output/1h_2D'
+    l_z_filter = .false.
+    l_p_filter = .false.
+    l_fi_pmsl_smooth = .false.
+    ytunit = 'd'
+/
+
+&gribout
+    yform_write = 'nc-4'
+    hcomb = 0, 24, 2
+    yvarml = ' '
+    yvarpl = ' '
+    yvarzl = 'U', 'V', 'W', 'T', 'P', 'QV', 'QC', 'QI'
+    zlev = 100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000,
+           2300, 2600, 2900, 3200, 3500, 4000, 4500, 5000, 6000, 7000, 8000,
+           9000, 10000
+    lcheck = .false.
+    luvmasspoint = .false.
+    lwrite_const = .false.
+    ydir = 'cosmo_output/2h_3D_zlev'
+    l_z_filter = .false.
+    l_p_filter = .false.
+    l_fi_pmsl_smooth = .false.
+    ytunit = 'd'
+/
+
+&gribout
+    yform_write = 'nc-4'
+    hcomb = 0, 24, 2
+    yvarml = 'VMAX_10M', 'W_SO', 'TMIN_2M', 'TMAX_2M', 'RUNOFF_S', 'RUNOFF_G'
+    yvarpl = ' '
+    yvarzl = ' '
+    ireset_winds = 2
+    ireset_temps = 2
+    lcheck = .false.
+    luvmasspoint = .false.
+    lwrite_const = .false.
+    ydir = 'cosmo_output/2h'
+    l_z_filter = .false.
+    l_p_filter = .false.
+    l_fi_pmsl_smooth = .false.
+    ytunit = 'd'
+/
