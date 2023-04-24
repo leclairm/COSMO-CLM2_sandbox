@@ -8,7 +8,7 @@
   ymode_write = 'w  '
   nincwait = 10
   nmaxwait = 200
-  nhour_restart = 0, 48, 48
+  nhour_restart = 0, 24, 24
   ngribout = 4
   itype_gather = 2
   ydir_restart_in = 'cosmo_output/restart'
@@ -54,7 +54,7 @@
 
  &GRIBOUT
   yform_write = 'nc-4'
-  hcomb = 0.0, 48, 1
+  hcomb = 0.0, 24, 1
   yvarml = 'U','V','W','T','PP',
      'QV','QC', 'QS','QR','QI','QG',
      'VIO3','HMO3',
@@ -74,7 +74,7 @@
 
  &GRIBOUT
   yform_write = 'nc-4'
-  hcomb = 0.0, 48, 1
+  hcomb = 0.0, 24, 1
   yvarml = 'U_10M', 'V_10M', 'T_2M', 'RELHUM_2M', 'PS', 'QV_2M',
            'ALHFL_S', 'ASHFL_S', 'AUMFL_S', 'AVMFL_S', 'CAPE_ML',
            'CIN_ML', 'CLCH', 'CLCM', 'CLCL', 'TOT_PREC',
@@ -97,7 +97,7 @@
 
  &GRIBOUT
   yform_write = 'nc-4'
-  hcomb = 0.0, 48, 3
+  hcomb = 0.0, 24, 3
   yvarml = ' '
   yvarpl = ' ',
   yvarzl = 'U', 'V', 'W', 'T', 'P', 'QV', 'QC', 'QI'
@@ -116,7 +116,7 @@
 
  &GRIBOUT
   yform_write = 'nc-4'
-  hcomb = 0.0, 48, 24
+  hcomb = 0.0, 24, 24
   yvarml = 'VMAX_10M', 'W_SO', 'TMIN_2M', 'TMAX_2M', 'RUNOFF_S', 'RUNOFF_G',
   yvarpl = ' '
   yvarzl = ' '

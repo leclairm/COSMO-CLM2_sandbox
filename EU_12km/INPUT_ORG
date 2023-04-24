@@ -13,7 +13,7 @@
  &RUNCTL
   dt = 90
   hstart = 0
-  hstop = 48
+  hstop = 24
   ydate_ini = '20110101000000'
   hincmxt = 24.0
   hincmxu = 24.0
