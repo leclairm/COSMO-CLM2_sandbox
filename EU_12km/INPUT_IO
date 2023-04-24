@@ -11,8 +11,8 @@
   nhour_restart = 0, 48, 48
   ngribout = 4
   itype_gather = 2
-  ydir_restart_in = 'output/restart'
-  ydir_restart_out = 'output/restart'
+  ydir_restart_in = 'cosmo_output/restart'
+  ydir_restart_out = 'cosmo_output/restart'
   ytunit_restart = 'd'
   lbdclim = .TRUE.
   yncglob_title = "COSMO driven by ERA5"
@@ -24,10 +24,10 @@
 
  &GRIBIN
   lbdana = .FALSE.
-  ydirini = 'input'
+  ydirini = 'cosmo_input'
   lchkini = .TRUE.
   hincbound = 6.0
-  ydirbd = 'input'
+  ydirbd = 'cosmo_input'
   lchkbd =.TRUE.
   lana_qi = .TRUE.
   llb_qi = .TRUE.
@@ -65,7 +65,7 @@
   lcheck = .FALSE.
   luvmasspoint = .FALSE.
   lwrite_const = .TRUE.
-  ydir = 'output/bc'
+  ydir = 'cosmo_output/bc'
   l_z_filter = .FALSE.
   l_p_filter = .FALSE.
   l_fi_pmsl_smooth = .FALSE.
@@ -88,7 +88,7 @@
   lcheck = .TRUE.
   luvmasspoint = .FALSE.
   lwrite_const = .FALSE.
-  ydir = 'output/1h_2D'
+  ydir = 'cosmo_output/1h_2D'
   l_z_filter = .FALSE.
   l_p_filter = .FALSE.
   l_fi_pmsl_smooth = .FALSE.
@@ -107,7 +107,7 @@
   lcheck = .FALSE.
   luvmasspoint = .FALSE.
   lwrite_const = .FALSE.
-  ydir = 'output/3h_3D_zlev'
+  ydir = 'cosmo_output/3h_3D_zlev'
   l_z_filter = .FALSE.
   l_p_filter = .FALSE.
   l_fi_pmsl_smooth = .FALSE.
@@ -125,7 +125,7 @@
   lcheck = .FALSE.
   luvmasspoint = .FALSE.
   lwrite_const = .FALSE.
-  ydir = 'output/24h'
+  ydir = 'cosmo_output/24h'
   l_z_filter = .FALSE.
   l_p_filter = .FALSE.
   l_fi_pmsl_smooth = .FALSE.
