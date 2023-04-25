@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# sbatch options
+account=sm61
+time=00:30:00
+partition=normal
+nodes=100   # ignored when cosmo runs on gpu in which case nodes = nprocx * nprocy + nprocio
+
+# cosmo target architecture
+cosmo_target=gpu
+
+# cesm compiler
+cesm_compiler=gcc
+
+# nodes and tasks (cesm takes cpus left)
+if [[ ${cosmo_target} == cpu ]]; then
+    nprocx=34
+    nprocy=34
+    nprocio=4
+elif [[ ${cosmo_target} == gpu ]]; then
+    nprocx=10
+    nprocy=10
+    nprocio=4
+fi
+
+# input data
+cesm_input_folder=/project/sm61/leclairm/CCLM2_sandbox_inputdata/cesm_input_044
+cosmo_input_folder=/project/sm61/leclairm/CCLM2_sandbox_inputdata/cosmo_input_002

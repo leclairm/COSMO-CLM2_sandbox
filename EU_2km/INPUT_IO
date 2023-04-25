@@ -2,21 +2,21 @@
     ldwd_grib_use = .false.
     yform_read = 'ncdf'
     l_ke_in_gds = .true.
-    lasync_io = .false.
-    lprefetch_io = .false.
+    lasync_io = .true.
+    lprefetch_io = .true.
     ymode_read = 'r  '
     ymode_write = 'w  '
     nincwait = 10
     nmaxwait = 200
     nhour_restart = 0, 24, 24
-    ngribout = 4
+    ngribout = 3
     itype_gather = 2
     ydir_restart_in = 'cosmo_output/restart'
     ydir_restart_out = 'cosmo_output/restart'
     yform_restart = 'nc-4'
     ytunit_restart = 'd'
     lbdclim = .true.
-    yncglob_title = 'COSMO driven by ERAI'
+    yncglob_title = 'COSMO driven by 12 km COSMO'
     yncglob_source = 'COSMO_6.0'
 /
 
@@ -25,11 +25,11 @@
 
 &gribin
     lbdana = .false.
-    ydirini = 'cosmo_input'
+    ydirini = 'input'
     lchkini = .true.
-    hincbound = 6.0
-    ydirbd = 'cosmo_input'
-    lchkbd = .true.
+    hincbound = 1.0
+    ydirbd = 'input'
+    lchkbd = .false.
     lana_qi = .true.
     llb_qi = .true.
     lana_qg = .false.
@@ -56,27 +56,9 @@
 &gribout
     yform_write = 'nc-4'
     hcomb = 0.0, 24, 1
-    yvarml = 'U', 'V', 'W', 'T', 'PP', 'QV', 'QC', 'QS', 'QR', 'QI', 'QG',
-             'VIO3', 'HMO3', 'T_SNOW', 'QV_S', 'W_SNOW', 'W_I', 'T_S', 'T_SO',
-             'W_SO', 'RHO_SNOW', 'FRESHSNW'
-    yvarpl = ' '
-    yvarzl = ' '
-    lcheck = .false.
-    luvmasspoint = .false.
-    lwrite_const = .true.
-    ydir = 'cosmo_output/bc'
-    l_z_filter = .false.
-    l_p_filter = .false.
-    l_fi_pmsl_smooth = .false.
-    ytunit = 'd'
-/
-
-&gribout
-    yform_write = 'nc-4'
-    hcomb = 0.0, 24, 1
     yvarml = 'U_10M', 'V_10M', 'T_2M', 'RELHUM_2M', 'PS', 'QV_2M', 'ALHFL_S',
              'ASHFL_S', 'AUMFL_S', 'AVMFL_S', 'CAPE_ML', 'CIN_ML', 'CLCH',
-             'CLCM', 'CLCL', 'TOT_PREC', 'TQC', 'TQI', 'TQR', 'TQV', 'TQG',
+             'CLCM', 'CLCL', 'TOT_PREC', 'TQV', 'TQC', 'TQI', 'TQR', 'TQG',
              'TQS', 'ASOB_T', 'ASOD_T', 'ATHB_T', 'ASOBC_T', 'ATHBC_T',
              'ASOB_S', 'ASWDIFD_S', 'ASWDIR_S', 'ASWDIFU_S', 'ATHB_S', 'ATHD_S',
              'ASOBC_S', 'ATHBC_S'
@@ -85,7 +67,7 @@
     ireset_sums = 2
     lcheck = .true.
     luvmasspoint = .false.
-    lwrite_const = .false.
+    lwrite_const = .true.
     ydir = 'cosmo_output/1h_2D'
     l_z_filter = .false.
     l_p_filter = .false.

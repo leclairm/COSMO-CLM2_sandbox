@@ -1,0 +1,13 @@
+&modelio
+  diri = "./cesm_input"
+  diro = "./cesm_output"
+  logfile = "esp.log"
+/
+&pio_inparm
+  pio_netcdf_format = ""
+  pio_numiotasks = -99
+  pio_rearranger = -99
+  pio_root = -99
+  pio_stride = -99
+  pio_typename = "nothing"
+/

@@ -1,0 +1,4 @@
+&diactl
+    n0meanval = 0
+    nincmeanval = 1
+/

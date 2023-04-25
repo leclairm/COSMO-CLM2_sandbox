@@ -1,0 +1,7 @@
+&inictl
+    ndfi = 2
+    tspan = 1840.0
+    taus = 1840.0
+    dtbak = 20.0
+    dtfwd = 20.0
+/
