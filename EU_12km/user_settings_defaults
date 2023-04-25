@@ -2,8 +2,8 @@
 
 # sbatch options
 account=sm61
-time=00:30:00
-partition=debug
+time=00:45:00
+partition=normal
 nodes=4   # ignored when cosmo runs on gpu in which case nodes = nprocx * nprocy + nprocio
 
 # cosmo target architecture
