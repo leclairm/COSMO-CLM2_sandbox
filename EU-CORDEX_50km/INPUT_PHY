@@ -31,7 +31,6 @@
     itype_synd = 2
     lsoil = .true.
     itype_hydmod = 1
-    !lsoil_init_fill = 1
     lmelt = .true.
     lmelt_var = .true.
     itype_trvg = 2

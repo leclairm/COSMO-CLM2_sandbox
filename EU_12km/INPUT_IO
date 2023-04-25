@@ -13,6 +13,7 @@
     itype_gather = 2
     ydir_restart_in = 'cosmo_output/restart'
     ydir_restart_out = 'cosmo_output/restart'
+    yform_restart = 'nc-4'
     ytunit_restart = 'd'
     lbdclim = .true.
     yncglob_title = 'COSMO driven by ERA5'

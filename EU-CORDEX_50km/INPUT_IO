@@ -7,7 +7,7 @@
     ymode_write = 'w  '
     nincwait = 10
     nmaxwait = 200
-    nhour_restart = 0, 2, 1
+    nhour_restart = 0, 24, 24
     ngribout = 4
     itype_gather = 2
     ydir_restart_in = 'cosmo_output/restart'

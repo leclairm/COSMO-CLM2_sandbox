@@ -7,7 +7,7 @@ nodes=4
 if [[ ${cosmo_target} == cpu ]]; then
     nprocx=6
     nprocy=6
-elif [[ ${cosmo_target} == cpu ]]; then
+elif [[ ${cosmo_target} == gpu ]]; then
     nprocx=2
     nprocy=2
 fi
