@@ -60,8 +60,8 @@ if [[ ${input_transfer} == "rsync" ]]; then
     rsync -av ${cesm_input_folder}/ ./cesm_input/
     rsync -av ${cosmo_input_folder}/ ./cosmo_input/
 elif [[ ${input_transfer} == "ln" ]]; then
-    rm -rf ./cesm_input; ln -s ${cesm_input_folder} ./cesm_input
-    rm -rf ./cosmo_input; ln -s ${cosmo_input_folder} ./cosmo_input
+    ln -s ${cesm_input_folder}/* ./cesm_input/.
+    ln -s ${cosmo_input_folder}/* ./cosmo_input/.
 fi
 
 # Distribute tasks
