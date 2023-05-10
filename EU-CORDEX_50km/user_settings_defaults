@@ -26,5 +26,6 @@ fi
 nprocio=0
 
 # input data
+input_transfer="rsync"
 cesm_input_folder=/project/sm61/leclairm/CCLM2_sandbox_inputdata/cesm_input_044
 cosmo_input_folder=/project/sm61/leclairm/CCLM2_sandbox_inputdata/cosmo_input_044

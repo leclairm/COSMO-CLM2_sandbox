@@ -45,16 +45,24 @@ rm -f grids.nc masks.nc areas.nc rmp*.nc
 rm -rf cosmo_output/*
 rm -rf cesm_output/*
 
-# Make missing COSMO directories
-# ------------------------------
+# Make missing directories
+# ------------------------
+# COSMO
 for ydir in $(sed -n 's/^\s*ydir.*=\s*["'\'']\(.*\)["'\'']\s*/\1/p' INPUT_IO); do
     mkdir -p ${ydir}
 done
+# CESM
+mkdir -p ./timing/checkpoints
 
 # Transfer input files
 # --------------------
-rsync -av ${cesm_input_folder}/ ./cesm_input/
-rsync -av ${cosmo_input_folder}/ ./cosmo_input/
+if [[ ${input_transfer} == "rsync" ]]; then
+    rsync -av ${cesm_input_folder}/ ./cesm_input/
+    rsync -av ${cosmo_input_folder}/ ./cosmo_input/
+elif [[ ${input_transfer} == "ln" ]]; then
+    rm -rf ./cesm_input; ln -s ${cesm_input_folder} ./cesm_input
+    rm -rf ./cosmo_input; ln -s ${cosmo_input_folder} ./cosmo_input
+fi
 
 # Distribute tasks
 # ----------------
