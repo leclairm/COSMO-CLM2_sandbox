@@ -13,8 +13,8 @@ error(){
 
 # User settings
 # -------------
-# If no user_settings file, use defaults (better design for version control)
-[[ -f user_settings ]] || ln -s user_settings_defaults user_settings
+# user_settings takes precedence over user_settings_defaults
+source user_settings_defaults
 source user_settings
 
 # Check executables and environments
