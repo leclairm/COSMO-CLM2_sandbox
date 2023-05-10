@@ -12,6 +12,9 @@ cosmo_target=cpu
 # cesm compiler
 cesm_compiler=gcc
 
+# Time period in hours
+hstop=24
+
 # nodes and tasks (cesm takes cpus left)
 if [[ ${cosmo_target} == cpu ]]; then
     nprocx=6

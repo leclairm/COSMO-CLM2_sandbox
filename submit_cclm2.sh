@@ -94,6 +94,7 @@ EOF
 
 # Adapt namelists
 # ---------------
+# COSMO
 change_param INPUT_ORG 'nprocx' ${nprocx}
 change_param INPUT_ORG 'nprocy' ${nprocy}
 change_param INPUT_ORG 'num_asynio_comm' ${nprocio}
@@ -106,10 +107,13 @@ else
     change_param INPUT_IO 'lasync_io' .false.
     change_param INPUT_IO 'lprefetch_io' .false.
 fi
+change_param INPUT_ORG 'hstop' ${hstop}
 [[ ${cosmo_target} == gpu ]] && lcpp_dycore=.true. || lcpp_dycore=.false.
+# CESM
 change_param INPUT_DYN 'lcpp_dycore' ${lcpp_dycore}
 change_param drv_in '.*_ntasks' ${ntasks_cesm}
+change_param drv_in 'stop_n' $((hstop*3600))
 
 # Submit job
 # ----------
-sbatch --account=${account} --time=${time} --nodes=${nodes} --constraint=gpu --partition=${partition} --job-name=CCLM2 --output="%x.log"  --wrap "srun -u --multi-prog ./prog_config"
+sbatch --account=${account} --time=${time} --nodes=${nodes} --constraint=gpu --partition=${partition} --job-name=CCLM2 --output="%x.log" --wrap "srun -u --multi-prog ./prog_config"
