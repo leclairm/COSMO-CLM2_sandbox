@@ -11,6 +11,10 @@ error(){
     exit 1
 }
 
+# Defaults
+# --------
+cesm_max_tasks=999999
+
 # User settings
 # -------------
 # user_settings takes precedence over user_settings_defaults
@@ -56,28 +60,24 @@ mkdir -p ./timing/checkpoints
 
 # Transfer input files
 # --------------------
+cosmo_input_folder=$(realpath ${cosmo_input_folder})
+cesm_input_folder=$(realpath ${cesm_input_folder})
 if [[ ${input_transfer} == "rsync" ]]; then
     rsync -av ${cesm_input_folder}/ ./cesm_input/
     rsync -av ${cosmo_input_folder}/ ./cosmo_input/
 elif [[ ${input_transfer} == "ln" ]]; then
-    pushd cesm_input &>/dev/null
-    for $f in ${cesm_input_folder}/*; do
-        ln -s $f
-    done
-    popd  &>/dev/null
-    pushd cosmo_input &>/dev/null
-    for $f in ${cosmo_input_folder}/*; do
-        ln -s $f
-    done
-    popd  &>/dev/null
+    cd cesm_input
+    ln -sfn ${cesm_input_folder}/* .
+    cd ../cosmo_input
+    ln -sfn ${cosmo_input_folder}/* .
+    cd ..
 fi
-
 # Distribute tasks
 # ----------------
 # Compute tasks and check
-[[ ${cosmo_target} == gpu ]] && ((nodes = nprocx * nprocy + nprocio))
-((ntasks = nodes * 12))
 ((ntasks_cosmo = nprocx * nprocy + nprocio))
+[[ ${cosmo_target} == gpu ]] && ((nodes = ntasks_cosmo))
+((ntasks = nodes * 12))
 ((ntasks_cesm = ntasks - ntasks_cosmo))
 if [[ ${cosmo_target} == cpu ]] && ((ntasks_cesm <= 0)); then
     error "missmatch in tasks distributions : nprocx * nprocy + nprocio >= nodes * 12"
@@ -91,6 +91,7 @@ if [[ ${cosmo_target} == cpu ]]; then
 elif [[ ${cosmo_target} == gpu ]]; then
     cosmo_tasks=""
     cesm_tasks=""
+    fake_tasks=""
     for ((k=0; k<nodes; k++)); do
         ((n0 = k*12))
         ((n1 = n0+1))
@@ -110,6 +111,7 @@ EOF
 
 # Adapt namelists
 # ---------------
+runtime=$((hstop*3600))
 # COSMO
 change_param INPUT_ORG 'nprocx' ${nprocx}
 change_param INPUT_ORG 'nprocy' ${nprocy}
@@ -128,7 +130,10 @@ change_param INPUT_ORG 'hstop' ${hstop}
 # CESM
 change_param INPUT_DYN 'lcpp_dycore' ${lcpp_dycore}
 change_param drv_in '.*_ntasks' ${ntasks_cesm}
-change_param drv_in 'stop_n' $((hstop*3600))
+change_param drv_in 'stop_option' nseconds
+change_param drv_in 'stop_n' $runtime
+# NAMCOUPLE
+sed -i 's/__RUNTIME__/'"${runtime}"'/' namcouple
 
 # Submit job
 # ----------
