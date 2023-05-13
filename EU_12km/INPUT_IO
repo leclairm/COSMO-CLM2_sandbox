@@ -9,7 +9,7 @@
     nincwait = 10
     nmaxwait = 200
     nhour_restart = 0, 24, 24
-    ngribout = 4
+    ngribout = 1
     itype_gather = 2
     ydir_restart_in = 'cosmo_output/restart'
     ydir_restart_out = 'cosmo_output/restart'
@@ -51,65 +51,6 @@
     lan_rho_snow = .true.
     lan_t_s = .false.
     ytunitbd = 'd'
-/
-
-&gribout
-    yform_write = 'nc-4'
-    hcomb = 0.0, 24, 1
-    yvarml = 'U', 'V', 'W', 'T', 'PP', 'QV', 'QC', 'QS', 'QR', 'QI', 'QG',
-             'VIO3', 'HMO3', 'T_SNOW', 'QV_S', 'W_SNOW', 'W_I', 'T_S', 'T_SO',
-             'W_SO', 'RHO_SNOW', 'FRESHSNW'
-    yvarpl = ' '
-    yvarzl = ' '
-    lcheck = .false.
-    luvmasspoint = .false.
-    lwrite_const = .true.
-    ydir = 'cosmo_output/bc'
-    l_z_filter = .false.
-    l_p_filter = .false.
-    l_fi_pmsl_smooth = .false.
-    ytunit = 'd'
-/
-
-&gribout
-    yform_write = 'nc-4'
-    hcomb = 0.0, 24, 1
-    yvarml = 'U_10M', 'V_10M', 'T_2M', 'RELHUM_2M', 'PS', 'QV_2M', 'ALHFL_S',
-             'ASHFL_S', 'AUMFL_S', 'AVMFL_S', 'CAPE_ML', 'CIN_ML', 'CLCH',
-             'CLCM', 'CLCL', 'TOT_PREC', 'TQC', 'TQI', 'TQR', 'TQV', 'TQG',
-             'TQS', 'ASOB_T', 'ASOD_T', 'ATHB_T', 'ASOBC_T', 'ATHBC_T',
-             'ASOB_S', 'ASWDIFD_S', 'ASWDIR_S', 'ASWDIFU_S', 'ATHB_S', 'ATHD_S',
-             'ASOBC_S', 'ATHBC_S'
-    yvarpl = ' '
-    yvarzl = ' '
-    ireset_sums = 2
-    lcheck = .true.
-    luvmasspoint = .false.
-    lwrite_const = .false.
-    ydir = 'cosmo_output/1h_2D'
-    l_z_filter = .false.
-    l_p_filter = .false.
-    l_fi_pmsl_smooth = .false.
-    ytunit = 'd'
-/
-
-&gribout
-    yform_write = 'nc-4'
-    hcomb = 0.0, 24, 3
-    yvarml = ' '
-    yvarpl = ' '
-    yvarzl = 'U', 'V', 'W', 'T', 'P', 'QV', 'QC', 'QI'
-    zlev = 100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000,
-           2300, 2600, 2900, 3200, 3500, 4000, 4500, 5000, 6000, 7000, 8000,
-           9000, 10000
-    lcheck = .false.
-    luvmasspoint = .false.
-    lwrite_const = .false.
-    ydir = 'cosmo_output/3h_3D_zlev'
-    l_z_filter = .false.
-    l_p_filter = .false.
-    l_fi_pmsl_smooth = .false.
-    ytunit = 'd'
 /
 
 &gribout
