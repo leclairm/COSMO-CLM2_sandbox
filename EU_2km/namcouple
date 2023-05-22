@@ -25,7 +25,7 @@
  $RUNTIME
 # This gives you the total simulated time for this run in seconds (here 6 days)
 #
-  86400
+  __RUNTIME__
  $END
 ###########################################################################
  $NLOGPRT
