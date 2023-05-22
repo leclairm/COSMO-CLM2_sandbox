@@ -13,7 +13,6 @@ error(){
 
 # Defaults
 # --------
-cesm_max_tasks=999999
 
 # User settings
 # -------------
