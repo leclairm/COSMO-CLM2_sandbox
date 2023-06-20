@@ -129,7 +129,7 @@ change_param INPUT_ORG 'hstop' ${hstop}
 # CESM
 change_param INPUT_DYN 'lcpp_dycore' ${lcpp_dycore}
 change_param drv_in '.*_ntasks' ${ntasks_cesm}
-change_param drv_in 'stop_option' nseconds
+change_param drv_in 'stop_option' "'nseconds'"
 change_param drv_in 'stop_n' $runtime
 # NAMCOUPLE
 sed -i 's/__RUNTIME__/'"${runtime}"'/' namcouple
